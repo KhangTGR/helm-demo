@@ -2,13 +2,13 @@ apiVersion: v1
 entries:
   hello:
   - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-12-29T14:41:41.17659527+07:00"
-    description: A demo Helm chart for Kubernetes
-    digest: 94abd22a7571fa97dac593fc41db23cf7e300fab7aa5a3882067ed37b83c2cdc
+    appVersion: 1.0.0
+    created: "2022-12-29T14:54:11.933788722+07:00"
+    description: A Helm chart for Kubernetes
+    digest: 1ebf7e3a2402e9c9a510234886c16ad645cf9d2ffee66b056c910e4aeec295ef
     name: hello
     type: application
     urls:
-    - https://github.com/KhangTGR/helm-demo/hello-0.1.0.tgz
-    version: 0.1.1
-generated: "2022-12-29T14:41:41.174241085+07:00"
+    - https://khangtgr.github.io/helm-demo/hello-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-12-29T14:54:11.9288163+07:00"
