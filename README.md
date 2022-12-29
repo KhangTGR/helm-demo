@@ -68,3 +68,19 @@ The 'index.yaml' would look like this:
     generated: "2022-12-29T16:25:58.392451999+07:00"
 
 Finally, **push** and **commit** everything onto repository
+
+## Step 3 | Install the chart repo for usage
+Add the repo first.
+
+    helm add repo myrepo https://khangtgr.github.io/helm-demo/
+
+To see the result, use these commands:
+
+    helm repo list
+    helm search repo myrepo
+
+Ultimately, install the charts
+
+    helm install myrelease myrepo/hello-demo 
+
+# Have fun and good luck!
