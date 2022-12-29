@@ -3,7 +3,7 @@ entries:
   hello-demo:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-12-29T15:37:00.199267802+07:00"
+    created: "2022-12-29T16:25:58.421584905+07:00"
     description: A demo Helm chart playground for testing Chart repo on GitHub
     digest: 644d63bc95d5857890d481fdb5234234739246b9f86c54b85b840141d78e666e
     name: hello-demo
@@ -11,4 +11,4 @@ entries:
     urls:
     - https://khangtgr.github.io/helm-demo/hello-demo-0.1.0.tgz
     version: 0.1.0
-generated: "2022-12-29T15:37:00.195385356+07:00"
+generated: "2022-12-29T16:25:58.392451999+07:00"
