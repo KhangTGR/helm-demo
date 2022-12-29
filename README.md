@@ -1,1 +1,1 @@
-# helm-demo
+# This is a helm-demo repo, a playground where the testing of Helm Chart repository is done
