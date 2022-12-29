@@ -1,17 +1,16 @@
 # Remove files
-rm hello-demo-0.1.0.tgz
+rm $CHARTS_SOURCE_TAR
 rm index.yaml
 
 # Create necessary files
 helm package charts/hello-world/
-helm repo index --url https://khangtgr.github.io/helm-demo/ .
+helm repo index --url $GITHUB_URL .
 
 # Update & Commit to GitHub
-git status
 git add .
-git commit -m ""
-git push origin main
+git commit -m "$GITHUB_COMMIT_MESSAGE"
+git push origin $GITHUB_REPO
 
 # Update the chart repo
-sleep 90
+sleep 60
 helm repo update myrepo
