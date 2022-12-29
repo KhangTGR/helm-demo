@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  hello:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-12-29T14:59:59.406799027+07:00"
+    description: A demo Helm chart playground for testing Chart repo on GitHub
+    digest: 983706759b11fa7df4a34f75551d1864b4c390386b06666a4f5ba546dbe32931
+    name: hello
+    type: application
+    urls:
+    - https://khangtgr.github.io/helm-demo/hello-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-12-29T14:59:59.381814941+07:00"
