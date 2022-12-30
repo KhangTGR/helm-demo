@@ -1,4 +1,13 @@
 terraform {
+
+  cloud {
+    organization = "dynamo-zone"
+
+    workspaces {
+      name = "terraform-webapp"
+    }
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -27,5 +36,6 @@ terraform {
   }
 
   required_version = "~> 1.3"
+
 }
 
