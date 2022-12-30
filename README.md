@@ -20,7 +20,7 @@ In this tutorial, I chose 'hello-world' chart which I already have.
         │       └── test-connection.yaml
         └── values.yaml
 
-This is an **optional** choice, yet make sure that the charts run without flaws. Use command:
+To make sure that the charts run without flaws. Use command:
 
     helm lint charts/hello-world
 
@@ -31,7 +31,7 @@ If it show like in the below, then it runs.
 
     1 chart(s) linted, 0 chart(s) failed
 
-Next, add robots.txt at the root location of the repository. This will avoid bot crawling on the Helm repository. 
+Next, this is an ***optional*** choice, add robots.txt at the root location of the repository. This will avoid bot crawling on the Helm repository. 
 
     echo -e “User-Agent: *\nDisallow: /” > robots.txt 
 
@@ -72,7 +72,7 @@ Finally, **push** and **commit** everything onto repository
 ## Step 3 | Install the chart repo for usage
 Add the repo first.
 
-    helm add repo myrepo https://khangtgr.github.io/helm-demo/
+    helm repo add myrepo https://khangtgr.github.io/helm-demo/
 
 To see the result, use these commands:
 
