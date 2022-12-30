@@ -21,8 +21,12 @@ elif [ $answer = "no" ]; then
 
     echo "=========================================="
 
-    docker build --platform=linux/amd64 -t $REPO_URL:$IMAGE_TAG .
-    docker push $REPO_URL:$IMAGE_TAG
+    docker rmi -f $REPO_URL:$IMAGE_TAG
+
+    docker build -q --platform=linux/amd64 -t $REPO_URL:$IMAGE_TAG .
+    docker push -q $REPO_URL:$IMAGE_TAG
+
+    rm -rf .env
 else
     echo "Please specify answer 'yes' or 'no'"
 fi

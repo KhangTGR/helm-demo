@@ -2,6 +2,20 @@
 Refference: https://www.opcito.com/blogs/creating-helm-repository-using-github-pages
 
 # Helm chart repo on GitHub instructions
+## Step 0 [OPTIONAL] | Config the image values of chart files
+Run the command below:
+
+    sh helm-image-edit.sh
+
+Then it would display like theses lines
+
+    ==========================================
+    Enter your Docker account name: khangtgr
+    Enter your image repo name: webapp
+    Enter your image tag: v1
+    ==========================================
+    File values.yaml edited successfully
+
 ## Step 1 | Prepare a 'charts' folder that contains all the chart files
 In this tutorial, I chose 'webapp-helm' chart which I already have. 
 
