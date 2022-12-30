@@ -1,18 +1,6 @@
 terraform {
 
-  cloud {
-    organization = "dynamo-zone"
-
-    workspaces {
-      name = "terraform-webapp"
-    }
-  }
-
   required_providers {
-    helm = {
-      source  = "hashicorp/helm"
-      version = "2.3.0"
-    }
 
     aws = {
       source  = "hashicorp/aws"

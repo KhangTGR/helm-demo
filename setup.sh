@@ -1,2 +1,2 @@
-echo "===== Setup infrastructure using Terraform ==="
-sh ./webapp-terraform/setup.sh
+echo "========== Setup AWS Infrastructure using Terraform =========="
+sh ./webapp-terraform/terraform-setup.sh
