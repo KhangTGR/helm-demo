@@ -3,30 +3,25 @@ Refference: https://www.opcito.com/blogs/creating-helm-repository-using-github-p
 
 # Helm chart repo on GitHub instructions
 ## Step 1 | Prepare a 'charts' folder that contains all the chart files
-In this tutorial, I chose 'hello-world' chart which I already have. 
+In this tutorial, I chose 'webapp-helm' chart which I already have. 
 
-    charts
-    └── hello-world
+    charts/
+    └── webapp-helm
         ├── Chart.yaml
         ├── templates
         │   ├── deployment.yaml
         │   ├── _helpers.tpl
-        │   ├── hpa.yaml
-        │   ├── ingress.yaml
         │   ├── NOTES.txt
-        │   ├── serviceaccount.yaml
-        │   ├── service.yaml
-        │   └── tests
-        │       └── test-connection.yaml
+        │   └── service.yaml
         └── values.yaml
 
 To make sure that the charts run without flaws. Use command:
 
-    helm lint charts/hello-world
+    helm lint charts/webapp-helm
 
 If it show like in the below, then it runs.
 
-    ==> Linting charts/hello-world
+    ==> Linting charts/webapp-helm
     [INFO] Chart.yaml: icon is recommended
 
     1 chart(s) linted, 0 chart(s) failed
@@ -37,7 +32,7 @@ Next, this is an ***optional*** choice, add robots.txt at the root location of t
 
 Finally, package the chart files to a tar. Get to the repository directory to run this command:
 
-    helm package charts/hello-world
+    helm package charts/webapp-helm
 
 ## Step 2 | Create an URL for GitHub repository
 Follow the instructions in the pictures below:
@@ -48,31 +43,31 @@ Follow the instructions in the pictures below:
 
 After having the URL, create the index.yaml file for the Helm repository.
 
-    helm repo index --url https://khangtgr.github.io/helm-demo/ . 
+    helm repo index --url https://khangtgr.github.io/helm-demo/webapp-helm/ . 
 
 The 'index.yaml' would look like this:
 
     apiVersion: v1
     entries:
-    hello-demo:
+    webapp-helm:
     - apiVersion: v2
-        appVersion: 1.16.0
-        created: "2022-12-29T16:25:58.421584905+07:00"
-        description: A demo Helm chart playground for testing Chart repo on GitHub
-        digest: 644d63bc95d5857890d481fdb5234234739246b9f86c54b85b840141d78e666e
-        name: hello-demo
+        appVersion: 1.0.0
+        created: "2022-12-30T14:53:45.507313643+07:00"
+        description: A Helm chart for Kubernetes
+        digest: d983302be17b0cfa1111c4b8f0d607b41ba307690b7e8c860e4722a15b722078
+        name: webapp-helm
         type: application
         urls:
-        - https://khangtgr.github.io/helm-demo/hello-demo-0.1.0.tgz
-        version: 0.1.0
-    generated: "2022-12-29T16:25:58.392451999+07:00"
+        - https://khangtgr.github.io/helm-demo/webapp-helm/webapp-helm-0.0.1.tgz
+        version: 0.0.1
+    generated: "2022-12-30T14:53:45.500868175+07:00"
 
 Finally, **push** and **commit** everything onto repository
 
 ## Step 3 | Install the chart repo for usage
 Add the repo first.
 
-    helm repo add myrepo https://khangtgr.github.io/helm-demo/
+    helm repo add myrepo https://khangtgr.github.io/helm-demo/webapp-helm
 
 To see the result, use these commands:
 
@@ -81,6 +76,6 @@ To see the result, use these commands:
 
 Ultimately, install the charts
 
-    helm install myrelease myrepo/hello-demo 
+    helm install myrelease myrepo/webapp-helm 
 
 # Have fun and good luck!
