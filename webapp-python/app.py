@@ -43,6 +43,7 @@ app.config['DYNAMO_TABLES'] = [
         }
     }
 ]
+
 dynamo = Dynamo(app)
 
 with app.app_context():
