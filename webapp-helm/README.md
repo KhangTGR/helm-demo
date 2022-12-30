@@ -16,6 +16,10 @@ Then it would display like theses lines
     ==========================================
     File values.yaml edited successfully
 
+Use this command to see the results
+
+    cat ./charts/webapp-helm/values.yaml
+
 ## Step 1 | Prepare a 'charts' folder that contains all the chart files
 In this tutorial, I chose 'webapp-helm' chart which I already have. 
 

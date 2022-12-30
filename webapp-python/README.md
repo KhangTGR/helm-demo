@@ -31,5 +31,7 @@ And it would display like this:
 
 Then wait a little bit, the image would be pushed successfully afterward.
 
+![images](images/2022-12-30_20h46_11.png)
+
 ### NOTE:
 After runing **docker-setup.sh**, the file ***.env*** will be deleted for security. Therefore, you will have to run **credentials-setup.sh** again if you want to push image.
