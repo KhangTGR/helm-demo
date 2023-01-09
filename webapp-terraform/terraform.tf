@@ -1,5 +1,13 @@
 terraform {
 
+  cloud {
+    organization = "dynamo-zone"
+
+    workspaces {
+      name = "terraform-webapp"
+    }
+  }
+
   required_providers {
 
     aws = {

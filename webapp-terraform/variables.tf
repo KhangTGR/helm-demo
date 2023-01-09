@@ -40,6 +40,12 @@ variable "vpc_enable_nat_gateway" {
   default     = true
 }
 
+variable "vpc_single_nat_gateway" {
+  description = "Enable single NAT gateway for VPC"
+  type        = bool
+  default     = true
+}
+
 variable "vpc_enable_dns_hostnames" {
   description = "Enable DNS hostnames for VPC"
   type        = bool
@@ -60,4 +66,3 @@ variable "node_instance_types" {
   type        = string
   default     = "t3.small"
 }
-
