@@ -1,25 +1,33 @@
 Reference: https://jhooq.com/prometheous-k8s-aws-setup/
 
 <style>
-  * {
+  /* * {
     margin: 0;
-  }
+  } */
 
-  .header-box {
+  /* .header-box {
     display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
-  }
+  } */
 
-  .header {
+  /* .header {
     font-size: 25px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
+  } */
 </style>
 
-<div class="header-box">
+<div style="
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;">
     
-  <p class="header">Prometheus - Grafana - EKS</p>
+  <p style="
+    font-size: 25px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    ">Prometheus - Grafana - EKS</p>
 </div>
