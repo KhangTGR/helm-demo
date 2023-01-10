@@ -16,3 +16,4 @@ Werkzeug==2.2.2
 zipp==3.10.0
 pytz==2022.6
 python-dotenv==0.21.0
+prometheus-flask-exporter==0.21.0

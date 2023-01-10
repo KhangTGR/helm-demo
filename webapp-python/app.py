@@ -1,18 +1,18 @@
-import os
+import datetime
+import json
+import socket
+
+import pytz
+from boto3.dynamodb.conditions import Key
+from dotenv import load_dotenv
 from flask import Flask, render_template
 from flask import request
-import datetime
-import pytz
-import socket
 from flask_dynamo import Dynamo
-
-from boto3.dynamodb.conditions import Key
-import json
-from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__)
+
 app.config['DYNAMO_TABLES'] = [
     {
         "TableName": "chatroom",
@@ -127,6 +127,7 @@ def chat(room):
             result = result + line
 
         return result
+
 
 if __name__ == "__main__":
     app.run(debug=True)
