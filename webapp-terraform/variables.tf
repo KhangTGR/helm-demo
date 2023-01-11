@@ -66,3 +66,21 @@ variable "node_instance_types" {
   type        = string
   default     = "t3.small"
 }
+
+variable "ec2_instance_types" {
+  description = "Instance type of server"
+  type        = string
+  default     = "t3.micro"
+}
+
+variable "ec2_instance_name" {
+  description = "Instance type of server"
+  type        = string
+  default     = "webapp-instance"
+}
+
+variable "ec2_instance_sg" {
+  description = "Instance type of server"
+  type        = string
+  default     = "webapp-instance-sg"
+}

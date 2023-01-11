@@ -1,0 +1,21 @@
+---
+
+- name: Install Jenkins
+  hosts: servers
+  become: true
+  tasks:
+###Instal docker
+  - name: Install docker-ce (centos) via amazon-linux-extras packages
+    shell: "amazon-linux-extras install docker -y"
+
+  - name: Enable Docker CE service at startup
+    service:
+      name: docker
+      state: started
+      enabled: yes
+  
+  - name: add ec2-user for root in docker
+    shell: "usermod -a -G docker ec2-user"
+
+  - name: Make docker auto-start
+    shell: "chkconfig docker on"

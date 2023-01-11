@@ -18,3 +18,13 @@ output "cluster_name" {
   value       = module.eks.cluster_name
 }
 
+output "Jenkin-private-kp" {
+  description = "Key-pair for Jenkin Server"
+  value       = module.key_pair.private_key_pem
+  sensitive   = true
+}
+
+output "Jenkin-public-kp" {
+  description = "Key-pair for Jenkin Server"
+  value       = module.key_pair.public_key_pem
+}

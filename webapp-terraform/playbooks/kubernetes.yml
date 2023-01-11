@@ -1,0 +1,40 @@
+- hosts: servers 
+  name: "JenkinWork - Install Java, Kubectl, helm"
+  become: true
+  tasks:
+    # - name: Update all packages
+    #   yum:
+    #     name: '*'
+    #     state: latest
+    #     update_only: yes
+
+    - name: Ensure a list of yum packages are installed
+      yum:
+        name: "{{ packages }}"
+        state: latest
+        update_cache: yes
+      vars:
+        packages:
+        - java
+        - python-pip
+
+    - name: Configure Kubernetes Repository
+      yum_repository:
+        name: Kubernetes
+        description: Kubectl
+        baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+        gpgcheck: yes
+        gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+        repo_gpgcheck: yes 
+
+    - name: Installing kubectl
+      yum:
+        name: 
+          - kubectl
+        state: present
+
+    - name: Install helm 
+      shell: |
+        wget https://get.helm.sh/helm-v3.10.3-linux-amd64.tar.gz
+        tar -xvf helm-v3.10.3-linux-amd64.tar.gz
+        mv linux-amd64/helm /usr/local/bin/helm

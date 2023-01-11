@@ -23,3 +23,51 @@ resource "random_string" "suffix" {
   special = false
 }
 
+module "key_pair" {
+  source             = "terraform-aws-modules/key-pair/aws"
+  key_name           = "jenkins-key"
+  create_private_key = true
+}
+
+module "security_group" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "4.16.2"
+
+  name        = var.ec2_instance_sg
+  description = "Security group for example usage with EC2 instance"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress_cidr_blocks = ["0.0.0.0/0"]
+  ingress_rules       = ["http-80-tcp", "all-icmp", "ssh-tcp"]
+  egress_rules        = ["all-all"]
+}
+
+# resource "null_resource" "kubernetes" {
+#   depends_on = [
+#     module.ec2_instances
+#   ]
+#   provisioner "local-exec" {
+#     # command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ec2-user --private-key /root/.ssh/jenkins-key.pem -i ./playbooks/inventory.yml ./playbooks/kubernetes.yml"
+#     command = "ansible-playbook -u ec2-user --private-key ~/jenkins-key.pem -i ./playbooks/inventory.yml ./playbooks/kubernetes.yml"
+#   }
+# }
+
+# resource "null_resource" "docker" {
+#   depends_on = [
+#     module.ec2_instances
+#   ]
+#   provisioner "local-exec" {
+#     command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ec2-user --private-key ~/jenkins-key.pem -i ./playbooks/inventory.yml ./playbooks/docker.yml"
+#   }
+# }
+
+# resource "null_resource" "setupJenkinsEBS" {
+# depends_on = [
+#   module.ec2_instances,
+#   aws_volume_attachment.this  
+# ]
+#   provisioner "local-exec" {
+#     command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u ec2-user --private-key /root/.ssh/jenkins-key.pem -i ./playbooks/inventory.yml ./playbooks/jenkins.yml"
+#   }
+# }
+
