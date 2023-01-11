@@ -9,8 +9,6 @@ module "eks" {
   subnet_ids                     = module.vpc.private_subnets
   cluster_endpoint_public_access = true
 
-  
-
   eks_managed_node_group_defaults = {
     ami_type = "AL2_x86_64"
   }
@@ -22,6 +20,10 @@ module "eks" {
       min_size       = 1
       max_size       = 2
       desired_size   = 1
+      tags = {
+        "k8s.io/cluster-autoscaler/enabled"               = true
+        "k8s.io/cluster-autoscaler/${local.cluster_name}" = "owned"
+      }
     }
 
     two = {
@@ -30,6 +32,10 @@ module "eks" {
       min_size       = 1
       max_size       = 2
       desired_size   = 1
+      tags = {
+        "k8s.io/cluster-autoscaler/enabled"               = true
+        "k8s.io/cluster-autoscaler/${local.cluster_name}" = "owned"
+      }
     }
   }
 }
